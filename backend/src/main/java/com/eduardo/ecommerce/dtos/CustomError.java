@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce.entities;
+package com.eduardo.ecommerce.dtos;
 
 import java.time.Instant;
 
