@@ -36,6 +36,7 @@ public class CategoryService {
 
 		try {
 			Category obj = repository.getReferenceById(id);
+			obj.setName(category.getName());
 			return repository.save(obj);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Recurso não encontrado.");
