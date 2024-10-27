@@ -1,5 +1,7 @@
 package com.eduardo.ecommerce.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,10 @@ public class CategoryService {
 	// Read/Retrieve
 	public Category findById(Long id) {
 		return repository.getReferenceById(id);
+	}
+	
+	public List<Category> findAll() {
+		return repository.findAll();
 	}
 	
 	// Update

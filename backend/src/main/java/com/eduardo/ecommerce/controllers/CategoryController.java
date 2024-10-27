@@ -1,6 +1,7 @@
 package com.eduardo.ecommerce.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,6 +33,11 @@ public class CategoryController {
 	public ResponseEntity<Category> findById(@PathVariable Long id) {
 		Category category = service.findById(id);
 		return ResponseEntity.ok(category);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Category>> findById() {
+		return ResponseEntity.ok(service.findAll());
 	}
 	
 	@PutMapping(value = "/{id}")
