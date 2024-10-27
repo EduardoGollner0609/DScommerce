@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.eduardo.ecommerce.entities.Category;
+import com.eduardo.ecommerce.dtos.CategoryDTO;
 import com.eduardo.ecommerce.services.CategoryService;
 
 @RestController
@@ -24,34 +24,33 @@ public class CategoryController {
 
 	@Autowired
 	private CategoryService service;
-	
-	@PostMapping 
-	public ResponseEntity<Category> create(@RequestBody Category category) {
-		service.save(category);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
-		return ResponseEntity.created(uri).body(category);
+
+	@PostMapping
+	public ResponseEntity<CategoryDTO> create(@RequestBody CategoryDTO dto) {
+		dto = service.save(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+		return ResponseEntity.created(uri).body(dto);
 	}
-	
+
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Category> findById(@PathVariable Long id) {
+	public ResponseEntity<CategoryDTO> findById(@PathVariable Long id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
-	
+
 	@GetMapping
-	public ResponseEntity<List<Category>> findAll() {
-		List<Category> categories = service.findAll();
-		return ResponseEntity.ok(categories);
+	public ResponseEntity<List<CategoryDTO>> findAll() {
+		return ResponseEntity.ok(service.findAll());
 	}
-	
+
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Category> update(@PathVariable Long id, @RequestBody Category category) {
-		category = service.update(id, category);
-		return ResponseEntity.ok(category);
+	public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO dto) {
+		dto = service.update(id, dto);
+		return ResponseEntity.ok(dto);
 	}
-		
+
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable long id) {
 		service.delete(id);
-		return ResponseEntity.noContent().build();	
+		return ResponseEntity.noContent().build();
 	}
 }
