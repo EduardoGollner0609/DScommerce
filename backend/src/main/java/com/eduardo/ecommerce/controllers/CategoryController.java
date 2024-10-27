@@ -3,6 +3,7 @@ package com.eduardo.ecommerce.controllers;
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import com.eduardo.ecommerce.services.CategoryService;
 @RequestMapping(value = "/categories")
 public class CategoryController {
 
+	@Autowired
 	private CategoryService service;
 	
 	@PostMapping 
@@ -36,8 +38,9 @@ public class CategoryController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Category>> findById() {
-		return ResponseEntity.ok(service.findAll());
+	public ResponseEntity<List<Category>> findAll() {
+		List<Category> categories = service.findAll();
+		return ResponseEntity.ok(categories);
 	}
 	
 	@PutMapping(value = "/{id}")
