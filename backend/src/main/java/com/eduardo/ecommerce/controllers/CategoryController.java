@@ -27,14 +27,14 @@ public class CategoryController {
 	
 	@PostMapping 
 	public ResponseEntity<Category> create(@RequestBody Category category) {
+		service.save(category);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
 		return ResponseEntity.created(uri).body(category);
 	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Category> findById(@PathVariable Long id) {
-		Category category = service.findById(id);
-		return ResponseEntity.ok(category);
+		return ResponseEntity.ok(service.findById(id));
 	}
 	
 	@GetMapping
