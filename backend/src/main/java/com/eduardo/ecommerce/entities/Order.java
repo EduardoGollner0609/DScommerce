@@ -26,7 +26,7 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant moment;
-	private OrderStatus orderStatus;
+	private OrderStatus status;
 	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
 	private Payment payment;
 	@ManyToOne
@@ -42,7 +42,7 @@ public class Order {
 	public Order(Long id, Instant moment, OrderStatus orderStatus, Payment payment, User client) {
 		this.id = id;
 		this.moment = moment;
-		this.orderStatus = orderStatus;
+		this.status = orderStatus;
 		this.payment = payment;
 		this.client = client;
 	}
@@ -68,16 +68,12 @@ public class Order {
 		this.moment = moment;
 	}
 
-	public void setOrderStatus() {
-
+	public OrderStatus getStatus() {
+		return status;
 	}
 
-	public OrderStatus getOrderStatus() {
-		return orderStatus;
-	}
-
-	public void setOrderStatus(OrderStatus orderStatus) {
-		this.orderStatus = orderStatus;
+	public void setStatus(OrderStatus status) {
+		this.status = status;
 	}
 
 	public Payment getPayment() {
