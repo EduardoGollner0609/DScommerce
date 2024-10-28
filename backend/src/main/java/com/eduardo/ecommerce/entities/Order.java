@@ -2,6 +2,8 @@ package com.eduardo.ecommerce.entities;
 
 import java.time.Instant;
 
+import com.eduardo.ecommerce.entities.enums.OrderStatus;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,9 +18,15 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant moment;
+	private OrderStatus orderStatus;
 
 	public Order() {
+	}
 
+	public Order(Long id, Instant moment, OrderStatus orderStatus) {
+		this.id = id;
+		this.moment = moment;
+		this.orderStatus = orderStatus;
 	}
 
 	public Order(Long id, Instant moment) {
@@ -40,6 +48,18 @@ public class Order {
 
 	public void setMoment(Instant moment) {
 		this.moment = moment;
+	}
+
+	public void setOrderStatus() {
+
+	}
+
+	public OrderStatus getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
 }
