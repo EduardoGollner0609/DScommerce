@@ -2,6 +2,7 @@ package com.eduardo.ecommerce.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.eduardo.ecommerce.entities.enums.OrderStatus;
@@ -99,4 +100,7 @@ public class Order {
 		return items;
 	}
 
+	public List<Product> getProducts() {
+		return items.stream().map(x -> x.getProduct()).toList();
+	}
 }
