@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -23,15 +25,19 @@ public class Order {
 	private OrderStatus orderStatus;
 	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
 	private Payment payment;
+	@ManyToOne
+	@JoinColumn(name = "client_id")
+	private User client;
 
 	public Order() {
 	}
 
-	public Order(Long id, Instant moment, OrderStatus orderStatus, Payment payment) {
+	public Order(Long id, Instant moment, OrderStatus orderStatus, Payment payment, User client) {
 		this.id = id;
 		this.moment = moment;
 		this.orderStatus = orderStatus;
 		this.payment = payment;
+		this.client = client;
 	}
 
 	public Order(Long id, Instant moment) {
@@ -74,7 +80,13 @@ public class Order {
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}
-	
-	
+
+	public User getClient() {
+		return client;
+	}
+
+	public void setClient(User client) {
+		this.client = client;
+	}
 
 }
