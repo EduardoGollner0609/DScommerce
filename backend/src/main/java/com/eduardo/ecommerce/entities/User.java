@@ -112,6 +112,10 @@ public class User implements UserDetails {
 	public Set<Role> getRoles() {
 		return roles;
 	}
+	
+	public void addRole(Role role) {
+		roles.add(role);
+	}
 
 	public boolean hasRole(String roleName) {
 		for (Role role : roles) {
