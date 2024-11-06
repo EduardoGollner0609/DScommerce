@@ -1,5 +1,9 @@
 import "./syles.css";
 
-export default function ProductCategory() {
-  return <div className="dsc-category">Eletrônicos</div>;
+type PropsCategory = {
+  name: string;
+};
+
+export default function ProductCategory({ name }: PropsCategory) {
+  return <div className="dsc-category">{ name }</div>;
 }

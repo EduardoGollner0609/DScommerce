@@ -21,8 +21,8 @@ export default function ProductDetailsCard() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <div className="dsc-category-container">
-          <ProductCategory />
-          <ProductCategory />
+          <ProductCategory name="Eletronicos" />
+          <ProductCategory name="Computadores"/>
         </div>
       </div>
     </div>
