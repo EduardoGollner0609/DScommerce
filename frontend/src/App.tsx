@@ -1,9 +1,10 @@
 import "./App.css";
+import HeaderClient from "./components/HeaderClient";
 
 function App() {
   return (
     <>
-      <h1>Olá mundo</h1>
+      <HeaderClient />
     </>
   );
 }
