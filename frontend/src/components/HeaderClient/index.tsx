@@ -1,5 +1,5 @@
 import "./syles.css";
-
+import cartImg from '../../assets/cart.svg';
 export default function HeaderClient() {
   return (
     <header className="dsc-header-client">
@@ -8,7 +8,7 @@ export default function HeaderClient() {
         <div className="dsc-navbar-right">
           <div className="dsc-menu-items-container">
             <div className="dsc-menu-item">
-              <img src="images/cart.svg" alt="Carrinho de compras" />
+              <img src={cartImg} alt="Carrinho de compras" />
             </div>
           </div>
           <a href="#">Entrar</a>
