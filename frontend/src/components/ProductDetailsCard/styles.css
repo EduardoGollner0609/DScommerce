@@ -32,3 +32,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.dsc-card {
+  border: 1px solid var(--dsc-color-card-border);
+  border-radius: 4px;
+  background-color: var(--dsc-color-card-bg);
+}
+
+.dsc-line-bottom {
+  border-bottom: 1px solid var(--dsc-color-card-border);
+}
