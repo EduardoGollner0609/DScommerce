@@ -1,8 +1,8 @@
-import ButtonInverse from "../../components/ButtonInverse";
-import ButtonPrimary from "../../components/ButtonPrimary";
-import HeaderClient from "../../components/HeaderClient";
-import ProductDetailsCard from "../../components/ProductDetailsCard";
-import { ProductDTO } from "../../models/Product";
+import ButtonInverse from "../../../components/ButtonInverse";
+import ButtonPrimary from "../../../components/ButtonPrimary";
+import HeaderClient from "../../../components/HeaderClient";
+import ProductDetailsCard from "../../../components/ProductDetailsCard";
+import { ProductDTO } from "../../../models/Product";
 import "./styles.css";
 
 const product: ProductDTO = {

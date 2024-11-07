@@ -1,9 +1,9 @@
-import HeaderClient from "../../components/HeaderClient";
+import HeaderClient from "../../../components/HeaderClient";
 import "./styles.css";
-import SearchBar from "../../components/SearchBar";
-import ButtonNextPage from "../../components/ButtonNextPage";
-import { ProductDTO } from "../../models/Product";
-import CatalogCard from "../../components/CatalogCard";
+import SearchBar from "../../../components/SearchBar";
+import ButtonNextPage from "../../../components/ButtonNextPage";
+import { ProductDTO } from "../../../models/Product";
+import CatalogCard from "../../../components/CatalogCard";
 
 const product: ProductDTO = {
   id: 2,
