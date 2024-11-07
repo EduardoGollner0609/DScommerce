@@ -28,12 +28,14 @@ const product: ProductDTO = {
 };
 export default function ProductDetails() {
   return (
-    <section id="product-details-section" className="dsc-container">
-      <ProductDetailsCard product={product} />
-      <div className="dsc-btn-page-container">
-        <ButtonPrimary text="Comprar" />
-        <ButtonInverse text="Inicio" />
-      </div>
-    </section>
+    <main>
+      <section id="product-details-section" className="dsc-container">
+        <ProductDetailsCard product={product} />
+        <div className="dsc-btn-page-container">
+          <ButtonPrimary text="Comprar" />
+          <ButtonInverse text="Inicio" />
+        </div>
+      </section>
+    </main>
   );
 }
