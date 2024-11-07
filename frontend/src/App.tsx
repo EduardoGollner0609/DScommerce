@@ -1,10 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Catalog from "./routes/Catalog";
 
-
 function App() {
   return (
-<Catalog />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Catalog />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
