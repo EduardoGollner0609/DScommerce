@@ -4,6 +4,7 @@ import ButtonNextPage from "../../../components/ButtonNextPage";
 import { ProductDTO } from "../../../models/Product";
 import CatalogCard from "../../../components/CatalogCard";
 
+
 const product: ProductDTO = {
   id: 2,
   name: "SmartTv",

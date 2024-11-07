@@ -4,7 +4,7 @@ import Catalog from "./routes/ClientHome/Catalog";
 import ProductDetails from "./routes/ClientHome/ProductDetails";
 import ClientHome from "./routes/ClientHome";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -17,5 +17,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
