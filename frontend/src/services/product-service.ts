@@ -8,7 +8,7 @@ export function findById(id: number): ProductDTO | undefined {
   return products.find((x) => x.id === id);
 }
 
-let products: ProductDTO[] = [
+const products: ProductDTO[] = [
   {
     id: 1,
     name: "The Lord of the Rings",
