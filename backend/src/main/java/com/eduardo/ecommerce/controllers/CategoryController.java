@@ -15,12 +15,12 @@ import com.eduardo.ecommerce.services.CategoryService;
 @RequestMapping(value = "/categories")
 public class CategoryController {
 
-    @Autowired
-    private CategoryService service;
+	@Autowired
+	private CategoryService service;
 
-    @GetMapping
-    public ResponseEntity<List<CategoryDTO>> findAll() {
-        List<CategoryDTO> list = service.findAll();
-        return ResponseEntity.ok(list);
-    }
+	@GetMapping
+	public ResponseEntity<List<CategoryDTO>> findAll() {
+		List<CategoryDTO> list = service.findAll();
+		return ResponseEntity.ok(list);
+	}
 }

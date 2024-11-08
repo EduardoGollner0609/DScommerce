@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.eduardo.ecommerce.entities.Order;
 import com.eduardo.ecommerce.entities.OrderItem;
-import com.eduardo.ecommerce.entities.enums.OrderStatus;
+import com.eduardo.ecommerce.entities.OrderStatus;
 
 import jakarta.validation.constraints.NotEmpty;
 

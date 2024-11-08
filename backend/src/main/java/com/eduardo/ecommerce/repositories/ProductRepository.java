@@ -7,9 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.eduardo.ecommerce.entities.Product;
 
-public interface ProductRepository  extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("SELECT obj FROM Product obj " +
-            "WHERE UPPER(obj.name) LIKE UPPER(CONCAT('%', :name, '%'))")
-    Page<Product> searchByName(String name, Pageable pageable);
+	@Query("SELECT obj FROM Product obj " + "WHERE UPPER(obj.name) LIKE UPPER(CONCAT('%', :name, '%'))")
+	Page<Product> searchByName(String name, Pageable pageable);
 }

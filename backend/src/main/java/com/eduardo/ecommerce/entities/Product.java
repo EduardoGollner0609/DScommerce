@@ -2,8 +2,10 @@ package com.eduardo.ecommerce.entities;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +24,10 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private Double price;
+
+	@Column(columnDefinition = "TEXT")
 	private String description;
+	private Double price;
 	private String imgUrl;
 
 	@ManyToMany
@@ -48,36 +52,36 @@ public class Product {
 		return id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public String getImgUrl() {
-		return imgUrl;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	public Double getPrice() {
+		return price;
+	}
+
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
 	public void setImgUrl(String imgUrl) {
@@ -91,9 +95,25 @@ public class Product {
 	public Set<OrderItem> getItems() {
 		return items;
 	}
-	
+
 	public List<Order> getOrders() {
 		return items.stream().map(x -> x.getOrder()).toList();
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		Product product = (Product) o;
+
+		return Objects.equals(id, product.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 }

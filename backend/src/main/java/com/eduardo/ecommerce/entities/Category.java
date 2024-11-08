@@ -1,6 +1,7 @@
 package com.eduardo.ecommerce.entities;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -11,17 +12,17 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="tb_category")
+@Table(name = "tb_category")
 public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
+	private Long id;
 	private String name;
-	
-	@ManyToMany(mappedBy ="categories")
+
+	@ManyToMany(mappedBy = "categories")
 	private Set<Product> products = new HashSet<>();
-	
+
 	public Category() {
 	}
 
@@ -33,13 +34,13 @@ public class Category {
 	public Long getId() {
 		return id;
 	}
-		
-	public String getName() {
-		return name;
-	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
@@ -49,8 +50,21 @@ public class Category {
 	public Set<Product> getProducts() {
 		return products;
 	}
-	
-	
-	
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		Category category = (Category) o;
+
+		return Objects.equals(id, category.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 }
