@@ -1,4 +1,5 @@
 import "./styles.css";
+import computerImg from "../../../assets/computer.png";
 
 export default function Cart() {
   return (
@@ -7,7 +8,7 @@ export default function Cart() {
         <div className="dsc-card dsc-mb20">
           <div className="dsc-cart-item-container dsc-line-bottom">
             <div className="dsc-cart-item-left">
-              <img src="images/computer.png" alt="Computador" />
+              <img src={computerImg} alt="Computador" />
               <div className="dsc-cart-item-description">
                 <h3>Computador Gamer XT</h3>
                 <div className="dsc-cart-item-quantity-container">
@@ -21,7 +22,7 @@ export default function Cart() {
           </div>
           <div className="dsc-cart-item-container dsc-line-bottom">
             <div className="dsc-cart-item-left">
-              <img src="images/computer.png" alt="Computador" />
+              <img src={computerImg} alt="Computador" />
               <div className="dsc-cart-item-description">
                 <h3>Computador Gamer XT</h3>
                 <div className="dsc-cart-item-quantity-container">
