@@ -4,10 +4,13 @@ import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import * as productService from "../../../services/product-service";
 import "./styles.css";
+import { useEffect, useState } from "react";
+import { ProductDTO } from "../../../models/Product";
+import axios from "axios";
 
 export default function ProductDetails() {
-  const params = useParams();
-  const product = productService.findById(Number(params.productId));
+
+
   return (
     <main>
       <section id="product-details-section" className="dsc-container">
