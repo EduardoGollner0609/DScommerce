@@ -2,7 +2,6 @@ import "./styles.css";
 import SearchBar from "../../../components/SearchBar";
 import ButtonNextPage from "../../../components/ButtonNextPage";
 import CatalogCard from "../../../components/CatalogCard";
-import * as ProductService from "../../../services/product-service";
 import { ProductDTO } from "../../../models/Product";
 import { useEffect, useState } from "react";
 import axios from "axios";
