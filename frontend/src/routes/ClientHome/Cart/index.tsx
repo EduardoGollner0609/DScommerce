@@ -2,6 +2,7 @@ import { useState } from "react";
 import { OrderDTO } from "../../../models/Order";
 import * as cartService from "../../../services/cart-service";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
@@ -44,7 +45,9 @@ export default function Cart() {
 
         <div className="dsc-btn-page-container">
           <div className="dsc-btn dsc-btn-blue">Finalizar pedido</div>
-          <div className="dsc-btn dsc-btn-white">Continuar comprando</div>
+          <Link to="/">
+            <div className="dsc-btn dsc-btn-white">Continuar comprando</div>
+          </Link>
         </div>
       </section>
     </main>
