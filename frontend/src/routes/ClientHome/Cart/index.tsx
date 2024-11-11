@@ -20,6 +20,7 @@ const item2: OrderItemDTO = new OrderItemDTO(
 );
 
 export default function Cart() {
+  
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
 
   return (
