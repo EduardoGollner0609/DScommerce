@@ -1,6 +1,7 @@
 export class OrderDTO {
   id?: number;
   items: OrderItemDTO[] = [];
+
   get total(): number {
     let sum = 0;
     this.items.forEach((item) => {
@@ -9,6 +10,7 @@ export class OrderDTO {
     return sum;
   }
 }
+
 export class OrderItemDTO {
   constructor(
     public productId: number,
