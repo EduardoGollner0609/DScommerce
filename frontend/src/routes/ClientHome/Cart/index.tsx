@@ -42,7 +42,6 @@ export default function Cart() {
             </div>
           </div>
         )}
-
         <div className="dsc-btn-page-container">
           <div className="dsc-btn dsc-btn-blue">Finalizar pedido</div>
           <Link to="/">
