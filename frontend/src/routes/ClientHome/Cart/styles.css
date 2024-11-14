@@ -58,11 +58,6 @@
   margin: 0 5px;
 }
 
-.dsc-btn-cart {
-  display: flex;
-  justify-content: space-between;
-}
-
 @media (min-width: 576px) {
   .dsc-cart-item-container {
     flex-direction: row;
