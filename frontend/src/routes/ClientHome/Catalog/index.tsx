@@ -8,12 +8,13 @@ import * as productService from "../../../services/product-service";
 
 export default function Catalog() {
   const [products, setProducts] = useState<ProductDTO[]>([]);
+  const [productName, setProductName] = useState("");
 
   useEffect(() => {
-    productService.findPageRequest(0, "", ).then((response) => {
+    productService.findPageRequest(0, productName).then((response) => {
       setProducts(response.data.content);
     });
-  }, []);
+  }, [productName]);
 
   return (
     <main>
