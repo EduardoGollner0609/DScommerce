@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import { OrderDTO } from "../../../models/order";
 import * as cartService from "../../../services/cart-service";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import { ContextCartCount } from "../../../utils/context-cart";
+import { OrderDTO } from "../../../models/Order";
 
 export default function Cart() {
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
