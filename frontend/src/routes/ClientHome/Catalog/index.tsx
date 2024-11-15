@@ -29,7 +29,8 @@ export default function Catalog() {
   }, [queryParams]);
 
   function handleSearch(searchText: string) {
-    setQueryParams({ ...queryParams, name: searchText });
+    setProducts([]);
+    setQueryParams({ ...queryParams, page: 0, name: searchText });
   }
 
   function handleNextPageClick() {
