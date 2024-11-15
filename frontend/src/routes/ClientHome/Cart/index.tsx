@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { OrderDTO } from "../../../models/Order";
+import { OrderDTO } from "../../../models/order";
 import * as cartService from "../../../services/cart-service";
 import "./styles.css";
 import { Link } from "react-router-dom";

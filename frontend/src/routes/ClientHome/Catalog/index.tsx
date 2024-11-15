@@ -2,7 +2,7 @@ import "./styles.css";
 import SearchBar from "../../../components/SearchBar";
 import ButtonNextPage from "../../../components/ButtonNextPage";
 import CatalogCard from "../../../components/CatalogCard";
-import { ProductDTO } from "../../../models/Product";
+import { ProductDTO } from "../../../models/product";
 import { useEffect, useState } from "react";
 import * as productService from "../../../services/product-service";
 
