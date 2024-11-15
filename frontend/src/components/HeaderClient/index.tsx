@@ -1,6 +1,7 @@
 import "./syles.css";
-import cartImg from "../../assets/cart.svg";
 import { Link } from "react-router-dom";
+import CartIcon from "../CartIcon";
+
 export default function HeaderClient() {
   return (
     <header className="dsc-header-client">
@@ -12,9 +13,7 @@ export default function HeaderClient() {
         <div className="dsc-navbar-right">
           <div className="dsc-menu-items-container">
             <div className="dsc-menu-item">
-              <Link to="/cart">
-                <img src={cartImg} alt="Carrinho de compras" />
-              </Link>
+              <CartIcon />
             </div>
           </div>
           <Link to="/login">Entrar</Link>
