@@ -5,7 +5,7 @@ import ProductDetails from "./routes/ClientHome/ProductDetails";
 import ClientHome from "./routes/ClientHome";
 import Cart from "./routes/ClientHome/Cart";
 import { useState } from "react";
-import { ContextCartCount } from "./utils/context-car";
+import { ContextCartCount } from "./utils/context-cart";
 
 export default function App() {
   const [contextCartCount, setContextCartCount] = useState<number>(0);

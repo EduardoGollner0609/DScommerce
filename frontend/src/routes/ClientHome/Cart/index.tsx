@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { OrderDTO } from "../../../models/Order";
 import * as cartService from "../../../services/cart-service";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { ContextCartCount } from "../../../utils/context-cart";
 
 export default function Cart() {
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
+
+  const { setContextCartCount } = useContext(ContextCartCount);
+
+  function handleClearClick() {
+    cartService.clearCart();
+    updateCart();
+  }
 
   function handleIncreaseItem(productId: number) {
     cartService.increaseItem(productId);
@@ -14,7 +22,13 @@ export default function Cart() {
 
   function handleDecreaseItem(productId: number) {
     cartService.decreaseItem(productId);
-    setCart(cartService.getCart());
+    updateCart();
+  }
+
+  function updateCart() {
+    const newCart = cartService.getCart();
+    setCart(newCart);
+    setContextCartCount(newCart.items.length);
   }
 
   return (
@@ -67,6 +81,9 @@ export default function Cart() {
           <Link to="/">
             <div className="dsc-btn dsc-btn-white">Continuar comprando</div>
           </Link>
+          <div onClick={handleClearClick} className="dsc-btn dsc-btn-white">
+            Limpar Carrinho
+          </div>
         </div>
       </section>
     </main>
