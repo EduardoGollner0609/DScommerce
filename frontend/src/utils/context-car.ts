@@ -5,7 +5,7 @@ export type ContextCartCountType = {
   setContextCartCount: (contextCartCount: number) => void;
 };
 
-export const contextCartCount = createContext<ContextCartCountType>({
+export const ContextCartCount = createContext<ContextCartCountType>({
   contextCartCount: 0,
   setContextCartCount: () => {},
 });
