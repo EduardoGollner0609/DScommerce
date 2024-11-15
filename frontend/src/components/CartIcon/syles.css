@@ -1,0 +1,7 @@
+.dsc-cart-count {
+  background-color: var(--dsc-color-bg-notification);
+  color: var(--dsc-color-font-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
