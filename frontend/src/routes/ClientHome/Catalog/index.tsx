@@ -16,10 +16,14 @@ export default function Catalog() {
     });
   }, [productName]);
 
+  function handleSearch(searchText: string) {
+    setProductName(searchText);
+  }
+
   return (
     <main>
       <section id="catalog-section" className="dsc-container">
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
         <div className="dsc-catalog-cards dsc-mb20 dsc-mt20">
           {products.map((product) => (
             <CatalogCard key={product.id} product={product} />
