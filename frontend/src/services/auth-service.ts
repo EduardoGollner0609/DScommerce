@@ -3,11 +3,12 @@ import { CredentialsDTO } from "../models/auth";
 import { CLIENT_ID, CLIENT_SECRET } from "../utils/system";
 import { AxiosRequestConfig } from "axios";
 import { requestBackend } from "../utils/requests";
+import * as accesTokenRepository from "../localstorage/access-token-repository";
 
 export function loginRequest(loginData: CredentialsDTO) {
   const headers = {
     "Content-Type": "application/x-www-form-urlencoded",
-    Authorization: "Basic " + window.btoa(CLIENT_ID + ":" + CLIENT_SECRET)
+    Authorization: "Basic " + window.btoa(CLIENT_ID + ":" + CLIENT_SECRET),
   };
 
   const requestBody = QueryString.stringify({
@@ -23,4 +24,16 @@ export function loginRequest(loginData: CredentialsDTO) {
   };
 
   return requestBackend(config);
+}
+
+export function logout() {
+  accesTokenRepository.remove();
+}
+
+export function saveAccessToken(token: string) {
+  accesTokenRepository.save(token);
+}
+
+export function getAccessToken() {
+  accesTokenRepository.get();
 }
