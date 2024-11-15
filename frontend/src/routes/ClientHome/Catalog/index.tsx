@@ -23,12 +23,17 @@ export default function Catalog() {
     productService
       .findPageRequest(queryParams.page, queryParams.name)
       .then((response) => {
-        setProducts(response.data.content);
+        const nextPage = response.data.content;
+        setProducts(products.concat(nextPage));
       });
   }, [queryParams]);
 
   function handleSearch(searchText: string) {
     setQueryParams({ ...queryParams, name: searchText });
+  }
+
+  function handleNextPageClick() {
+    setQueryParams({ ...queryParams, page: queryParams.page + 1 });
   }
 
   return (
@@ -41,7 +46,9 @@ export default function Catalog() {
           ))}
         </div>
 
-        <ButtonNextPage />
+        <div onClick={handleNextPageClick}>
+          <ButtonNextPage />
+        </div>
       </section>
     </main>
   );
