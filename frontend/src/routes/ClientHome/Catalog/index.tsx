@@ -28,7 +28,7 @@ export default function Catalog() {
   }, [queryParams]);
 
   function handleSearch(searchText: string) {
-    setProductName(searchText);
+    setQueryParams({ ...queryParams, name: searchText });
   }
 
   return (
