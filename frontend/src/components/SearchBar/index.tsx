@@ -12,6 +12,11 @@ export default function SearchBar({ onSearch }: Props) {
     setText(event.target.value);
   }
 
+  function handleResetClick() {
+    setText("");
+    onSearch(text);
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onSearch(text);
@@ -26,7 +31,9 @@ export default function SearchBar({ onSearch }: Props) {
         placeholder="Nome do produto"
         onChange={handleChange}
       />
-      <button type="reset">🗙</button>
+      <button onClick={handleResetClick}>
+        🗙
+      </button>
     </form>
   );
 }
