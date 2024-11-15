@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./styles.css";
 
 type Props = {
-  onSearch: Function;
+  onSearch: (query: string) => void;
 };
 
 export default function SearchBar({ onSearch }: Props) {
@@ -31,9 +31,7 @@ export default function SearchBar({ onSearch }: Props) {
         placeholder="Nome do produto"
         onChange={handleChange}
       />
-      <button onClick={handleResetClick}>
-        🗙
-      </button>
+      <button onClick={handleResetClick}>🗙</button>
     </form>
   );
 }
