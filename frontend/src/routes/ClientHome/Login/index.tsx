@@ -1,7 +1,7 @@
+import "./styles.css";
 import { useState } from "react";
 import { CredentialsDTO } from "../../../models/auth";
-import "./styles.css";
-import { loginRequest } from "../../../utils/auth-service";
+import * as authService from "../../../services/auth-service";
 
 export default function Login() {
   const [formData, setFormData] = useState<CredentialsDTO>({
@@ -11,15 +11,20 @@ export default function Login() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    loginRequest(formData);
-  }
+    authService.loginRequest(formData).then((response) => {
+      console.log(response.data);
+    }).catch(error => {
+      console.log(error);
+    })
+    };
+
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     const name = event.target.name;
     setFormData({ ...formData, [name]: value });
   }
-  
+
   return (
     <main>
       <section id="login-section" className="dsc-container">
