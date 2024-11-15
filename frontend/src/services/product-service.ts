@@ -1,5 +1,5 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { BASE_URL } from "../utils/system";
+import { AxiosRequestConfig } from "axios";
+import { requestBackend } from "../utils/requests";
 
 export function findPageRequest(
   page: number,
@@ -8,14 +8,14 @@ export function findPageRequest(
   sort = "name"
 ) {
   const config: AxiosRequestConfig = {
-    baseURL: BASE_URL,
+    method: "GET",
     url: "/products",
     params: { page, name, size, sort },
   };
 
-  return axios(config);
+  return requestBackend(config);
 }
 
 export function findById(id: number) {
-  return axios.get(`${BASE_URL}/products/${id}`);
+  return requestBackend({ url: `/products/${id}` });
 }

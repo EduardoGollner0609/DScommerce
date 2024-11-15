@@ -10,11 +10,11 @@ export default function Login() {
             <div className="dsc-form-controls-container">
               <div>
                 <input
-                  className="dsc-form-control dsc-input-error"
+                  className="dsc-form-control"
                   type="text"
                   placeholder="Email"
                 />
-                <div className="dsc-form-error">Campo obrigatório</div>
+                <div className="dsc-form-error"></div>
               </div>
               <div>
                 <input
