@@ -2,22 +2,20 @@ import "./styles.css";
 import { useState } from "react";
 import { CredentialsDTO } from "../../../models/auth";
 import * as authService from "../../../services/auth-service";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<CredentialsDTO>({
     username: "",
     password: "",
   });
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    authService
-      .loginRequest(formData)
-      .then((response) => {
-        authService.saveAccessToken(response.data.access_token);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    authService.loginRequest(formData).then((response) => {
+      authService.saveAccessToken(response.data.access_token);
+      navigate("/cart");
+    });
   }
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
