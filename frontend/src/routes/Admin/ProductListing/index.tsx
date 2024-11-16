@@ -4,6 +4,7 @@ import editIcon from "../../../assets/pen-icon.svg";
 import deleteIcon from "../../../assets/trash-icon.svg";
 import { useEffect, useState } from "react";
 import { ProductDTO } from "../../../models/product";
+import SearchBar from "../../../components/SearchBar";
 
 type QueryParams = {
   page: number;
@@ -30,6 +31,11 @@ export default function ProductListing() {
       });
   }, [queryParams]);
 
+  function handleSearch(searchText: string) {
+    setProducts([]);
+    setQueryParams({ ...queryParams, page: 0, name: searchText });
+  }
+
   return (
     <main>
       <section id="product-listing-section" className="dsc-container">
@@ -39,11 +45,7 @@ export default function ProductListing() {
           <div className="dsc-btn dsc-btn-white">Novo</div>
         </div>
 
-        <form className="dsc-search-bar">
-          <button type="submit">🔎︎</button>
-          <input type="text" placeholder="Nome do produto" />
-          <button type="reset">🗙</button>
-        </form>
+        <SearchBar onSearch={handleSearch} />
 
         <table className="dsc-table dsc-mb20 dsc-mt20">
           <thead>
@@ -57,9 +59,8 @@ export default function ProductListing() {
             </tr>
           </thead>
           <tbody>
-            {
-            products.map((product) => (
-              <tr>
+            {products.map((product) => (
+              <tr key={product.id}>
                 <td className="dsc-tb576">{product.id}</td>
                 <td>
                   <img
