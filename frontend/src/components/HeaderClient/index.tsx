@@ -1,6 +1,8 @@
 import "./syles.css";
 import { Link } from "react-router-dom";
 import CartIcon from "../CartIcon";
+import gearIcon from "../../assets/gear-icon.svg";
+import * as authService from "../../services/auth-service";
 
 export default function HeaderClient() {
   return (
@@ -12,6 +14,16 @@ export default function HeaderClient() {
 
         <div className="dsc-navbar-right">
           <div className="dsc-menu-items-container">
+            {
+            authService.hasAnyRoles(["ROLE_ADMIN"]) && 
+            (
+              <Link to="/admin">
+                <div className="dsc-menu-item">
+                  <img src={gearIcon} alt="Admin" />
+                </div>
+              </Link>
+            )
+            }
             <Link to="/cart">
               <div className="dsc-menu-item">
                 <CartIcon />
