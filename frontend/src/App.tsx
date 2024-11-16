@@ -1,11 +1,12 @@
 import "./App.css";
+import * as cartService from "./services/cart-service";
+import * as authService from "./services/auth-service";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Catalog from "./routes/ClientHome/Catalog";
 import ProductDetails from "./routes/ClientHome/ProductDetails";
 import ClientHome from "./routes/ClientHome";
 import Cart from "./routes/ClientHome/Cart";
-import { useState } from "react";
-import * as cartService from "./services/cart-service";
+import { useEffect, useState } from "react";
 import Login from "./routes/ClientHome/Login";
 import AdminHome from "./routes/Admin/AdminHome";
 import Admin from "./routes/Admin";
@@ -23,6 +24,13 @@ export default function App() {
 
   const [contextTokenPayload, setContextTokenPayload] =
     useState<AccessTokenPayloadDTO>();
+
+  useEffect(() => {
+    if (authService.isAuthenticated()) {
+      const payload = authService.getAccessTokenPayload();
+      setContextTokenPayload(payload);
+    }
+  }, []);
 
   return (
     <ContextToken.Provider
