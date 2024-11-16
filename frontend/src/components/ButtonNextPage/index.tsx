@@ -1,5 +1,13 @@
 import "./styles.css";
 
-export default function ButtonNextPage() {
-  return <div className="dsc-btn-next-page">Carregar mais</div>;
+type Props = {
+  onNextPage: () => void;
+};
+
+export default function ButtonNextPage({ onNextPage }: Props) {
+  return (
+    <div onClick={() => onNextPage()} className="dsc-btn-next-page">
+      Carregar mais
+    </div>
+  );
 }
