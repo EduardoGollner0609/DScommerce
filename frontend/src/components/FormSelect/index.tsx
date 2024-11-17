@@ -5,6 +5,7 @@ import Select from "react-select";
 
 export default function FormSelect(props: any) {
   const {
+    className,
     validation,
     invalid = "false",
     dirty = "false",
@@ -17,11 +18,8 @@ export default function FormSelect(props: any) {
   }
 
   return (
-    <Select
-      onBlur={handleBlur}
-      {...selectProps}
-      data-invalid={invalid}
-      data-dirty={dirty}
-    />
+    <div className={className} data-invalid={invalid} data-dirty={dirty}>
+      <Select onBlur={handleBlur} {...selectProps} />
+    </div>
   );
 }
