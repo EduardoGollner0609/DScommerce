@@ -37,7 +37,10 @@ export default function ProductForm() {
 
   useEffect(() => {
     if (isEditing) {
-      productService.findById(Number(params.id));
+      productService.findById(Number(params.productId)).then((response) => {
+        const newFormData = forms.updateAll(formData, response.data);
+        setFormData(newFormData);
+      });
     }
   }, []);
 
