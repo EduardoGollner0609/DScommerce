@@ -6,9 +6,9 @@ import FormInput from "../../../components/FormInput";
 import * as forms from "../../../utils/forms";
 import * as productService from "../../../services/product-service";
 import FormTextArea from "../../../components/FormTextArea";
-import Select from "react-select";
 import { CategoryDTO } from "../../../models/category";
 import * as categoryService from "../../../services/category-service";
+import FormSelect from "../../../components/FormSelect";
 
 export default function ProductForm() {
   const params = useParams();
@@ -27,7 +27,7 @@ export default function ProductForm() {
       validation: function (value: string) {
         return /^.{3,80}$/.test(value);
       },
-      message: "Favor informar um nome de 3 a 80 caracteres.",
+      message: "Favor informar um nome de 3 a 80 caracteres",
     },
     price: {
       value: "",
@@ -56,7 +56,17 @@ export default function ProductForm() {
       validation: function (value: string) {
         return /^.{10,}$/.test(value);
       },
-      message: "A descrição deve ter pelo menos 10 caracteres.",
+      message: "A descrição deve ter pelo menos 10 caracteres",
+    },
+    categories: {
+      value: [],
+      id: "categories",
+      name: "categories",
+      placeholder: "Categorias",
+      validation: function (value: CategoryDTO[]) {
+        return value.length > 0;
+      },
+      message: "Escolha ao menos uma categoria",
     },
   });
 
@@ -120,11 +130,21 @@ export default function ProductForm() {
                 <div className="dsc-form-error">{formData.imgUrl.message}</div>
               </div>
               <div>
-                <Select
+                <FormSelect
+                  {...formData.categories}
                   options={categories}
+                  onChange={(obj: any) => {
+                    const newFormData = forms.updateAndValidate(
+                      formData,
+                      "categories",
+                      obj
+                    );
+                    setFormData(newFormData);
+                  }}
+                  onTurnDirty={handleTurnDirty}
                   isMulti
-                  getOptionLabel={(obj) => obj.name}
-                  getOptionValue={(obj) => String(obj.id)}
+                  getOptionLabel={(obj: any) => obj.name}
+                  getOptionValue={(obj: any) => String(obj.id)}
                 />
               </div>
               <div>
