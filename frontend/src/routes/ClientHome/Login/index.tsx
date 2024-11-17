@@ -40,13 +40,14 @@ export default function Login() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    setSubmitResponseFail(false);
+
     const formDataValidated = forms.dirtyAndValidateAll(formData);
     if (forms.hasAnyInvalid(formDataValidated)) {
       setFormData(formDataValidated);
       return;
     }
 
-    event.preventDefault();
     authService
       .loginRequest(forms.toValues(formData))
       .then((response) => {
