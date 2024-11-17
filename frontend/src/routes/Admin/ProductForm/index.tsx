@@ -116,9 +116,17 @@ export default function ProductForm() {
       ? productService.updateRequest(requestBody)
       : productService.insertRequest(requestBody);
 
-    request.then(() => {
-      navigate("/admin/products");
-    });
+    request
+      .then(() => {
+        navigate("/admin/products");
+      })
+      .catch((error) => {
+        const newInputs = forms.setBackendErrors(
+          formData,
+          error.response.data.errors
+        );
+        setFormData(newInputs);
+      });
   }
   return (
     <main>
