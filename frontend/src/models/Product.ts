@@ -1,4 +1,4 @@
-import { CategoryDTO } from "./category.ts";
+import { CategoryDTO } from "./category";
 
 export type ProductDTO = {
   id: number;
