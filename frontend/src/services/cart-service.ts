@@ -1,6 +1,6 @@
 import * as cartRepository from "../localstorage/cart-repository";
-import { OrderDTO, OrderItemDTO } from "../models/order";
-import { ProductDTO } from "../models/product";
+import { OrderDTO, OrderItemDTO } from "../models/ors";
+import { ProductDTO } from "../models/s";
 
 export function saveCart(cart: OrderDTO) {
   cartRepository.save(cart);

@@ -1,4 +1,4 @@
-import { ProductDTO } from "../../models/product";
+import { ProductDTO } from "../../models/s";
 import "./styles.css";
 import { Link } from "react-router-dom";
 

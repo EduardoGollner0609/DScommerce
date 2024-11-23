@@ -4,7 +4,7 @@ import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextCartCount } from "../../../utils/context-cart";
 import * as orderService from "../../../services/order-service";
-import { OrderDTO } from "../../../models/order";
+import { OrderDTO } from "../../../models/ors";
 
 export default function Cart() {
   const navigate = useNavigate();

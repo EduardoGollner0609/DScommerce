@@ -4,7 +4,7 @@ import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import "./styles.css";
 import { useContext, useEffect, useState } from "react";
-import { ProductDTO } from "../../../models/product";
+import { ProductDTO } from "../../../models/s";
 import * as productService from "../../../services/product-service";
 import * as cartService from "../../../services/cart-service";
 import { ContextCartCount } from "../../../utils/context-cart";
