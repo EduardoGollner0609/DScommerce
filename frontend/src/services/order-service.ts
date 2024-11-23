@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import { requestBackend } from "../utils/requests";
-import { OrderDTO } from "../models/ors";
+import { OrderDTO } from "../models/order";
 
 export function findByIdRequest(id: number) {
   const config: AxiosRequestConfig = {

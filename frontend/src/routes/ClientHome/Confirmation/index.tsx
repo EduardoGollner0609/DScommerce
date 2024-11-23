@@ -2,7 +2,7 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as orderService from "../../../services/order-service";
-import { OrderDTO } from "../../../models/ors";
+import { OrderDTO } from "../../../models/order";
 
 export default function Confirmation() {
   const params = useParams();

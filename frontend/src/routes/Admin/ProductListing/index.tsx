@@ -3,7 +3,7 @@ import * as productService from "../../../services/product-service";
 import editIcon from "../../../assets/pen-icon.svg";
 import deleteIcon from "../../../assets/trash-icon.svg";
 import { useEffect, useState } from "react";
-import { ProductDTO } from "../../../models/s";
+import { ProductDTO } from "../../../models/product";
 import SearchBar from "../../../components/SearchBar";
 import ButtonNextPage from "../../../components/ButtonNextPage";
 import DialogInfo from "../../../components/DialogInfo";

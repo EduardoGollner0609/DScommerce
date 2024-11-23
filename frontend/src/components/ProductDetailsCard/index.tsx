@@ -1,6 +1,6 @@
 import "./styles.css";
 import ProductCategory from "../ProductCategory";
-import { ProductDTO } from "../../models/s.ts";
+import { ProductDTO } from "../../models/product.ts";
 
 type PropsProductDetails = {
   product: ProductDTO;

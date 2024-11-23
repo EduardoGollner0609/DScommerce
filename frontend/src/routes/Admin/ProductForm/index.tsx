@@ -6,7 +6,7 @@ import FormInput from "../../../components/FormInput";
 import * as forms from "../../../utils/forms";
 import * as productService from "../../../services/product-service";
 import FormTextArea from "../../../components/FormTextArea";
-import { CategoryDTO } from "../../../models/caegory";
+import { CategoryDTO } from "../../../models/category";
 import * as categoryService from "../../../services/category-service";
 import FormSelect from "../../../components/FormSelect";
 import { selectStyles } from "../../../utils/select";

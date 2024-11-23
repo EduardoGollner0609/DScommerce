@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import { requestBackend } from "../utils/requests";
-import { ProductDTO } from "../models/s";
+import { ProductDTO } from "../models/product";
 
 export function findPageRequest(
   page: number,
